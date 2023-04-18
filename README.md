@@ -7,7 +7,7 @@ The objective given by the client was for us to process the datasets provided an
 Original platform datasets and rating datasets are saved in a drive on this <a href="https://drive.google.com/drive/folders/1oPQRbG3WkTkk8uIAiQF7f6PKOc1CPRxI?usp=share_link" rel="nofollow">link</a>
 
 # Data treatment:
-ETL_main.py
+[ETL_main.py](https://github.com/josefinaloyola/Proyecto-Individual-1/blob/main/ETL_main.py)
 
 etl(support).ipynb
 
