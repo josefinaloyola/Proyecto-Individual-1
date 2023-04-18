@@ -63,4 +63,4 @@ I didn't know how to do this part of the project so I left the function blank. I
 
 
 # Video explanation:
-link -- hacer video y poner link
+[link video](https://youtu.be/PllOOqe4FnY)
