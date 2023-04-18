@@ -9,10 +9,11 @@ Original platform datasets and rating datasets are saved in a drive on this <a h
 # Data treatment:
 [ETL_main.py](https://github.com/josefinaloyola/Proyecto-Individual-1/blob/main/ETL_main.py)
 
-etl(support).ipynb
+[ETL_soporte.ipynb](https://github.com/josefinaloyola/Proyecto-Individual-1/blob/main/ETL_soporte.ipynb)
 
 In order to better structure the information in the data, we proceeded to:
-For files of each platform (found in the 'datasets' folder): Amazon, Disney, Hulu, and Netflix.
+
+For files of each platform: Amazon, Disney, Hulu, and Netflix.
 
 * A new id field was generated: Each new id is composed of the first letter of the platform name, followed by the show_id already present in the datasets (example for Amazon titles = as123).
 
@@ -26,22 +27,22 @@ For files of each platform (found in the 'datasets' folder): Amazon, Disney, Hul
 
 * The "Duration" original field was eliminated
 
-For rating files (from 1 to 8):
+For rating files (from 1 to 8) in this link [ETL_ratings.ipynb](https://github.com/josefinaloyola/Proyecto-Individual-1/blob/main/ETL_ratings.ipynb)
 
-* A new column was added to indicate which platform each ID in the 'movieId' column belongs to.
-
-* The 8 datasets were concatenated into a single one, the columns of esto y esto were eliminated since they didn't add any value. 
+* The 8 datasets were concatenated into a single one, the columns of userId and timestamp were eliminated since they didn't add any value. 
 
 * An average score per movie was calculated, since there were multiple scores for the same movies. In this way we obtained the general score for the movie and we reduced the size of the dataset so it could be exported with a smaller size so that it could later be uploaded to GitHub 
 
-* after being loaded, since, due to the size of the datasets, it was not possible to deploy on Render.
+The ratings csv has been saved in my git repository [scores_data.csv](https://github.com/josefinaloyola/Proyecto-Individual-1/blob/main/scores_data.csv)
 
-The concatenated csv has been saved in a drive as scores_data.csv -- agregar link
+The multiplatform csv has been saved in my git repository [multiplataforma.csv](https://github.com/josefinaloyola/Proyecto-Individual-1/blob/main/multiplataforma.csv)
+
+The scores + platforms csv has been saved in my git repository [plataformas_scores.csv](https://raw.githubusercontent.com/josefinaloyola/Proyecto-Individual-1/main/plataformas_scores.csv)
 
 # API Development:
-main.py -- agregar link
+[main.py](https://github.com/josefinaloyola/Proyecto-Individual-1/blob/main/main.py)
 
-With the transformed datasets, they were made available to the client through an API built with FastAPI library, featuring various queries for the user:
+With the transformed datasets, that were made available to the client through an API built with FastAPI library, featuring various queries for the user:
 
 * Movie (not TV Show, etc.) with the longest duration by year, platform, and duration type. Function name: get_max_duration(year, platform, duration_type). Returns the name of the movie
 
@@ -57,11 +58,6 @@ With the transformed datasets, they were made available to the client through an
 
 # Deployment:
 The deployment was carried out through Render at the following link, with the project name: PI-MLOpsEngineer. -- hacer render y link
-
-# Exploratory Data Analysis:
-eda_mainfile.ipynb -- link
-
-To obtain a first global overview of the datasets' structure, functions such as .shape, .dtype, .describe, .info, and .head were used. In order to observe a little more in detail, a box plot diagram was graphed, where several outliers were found in the "duration_int" column. Finally, to complement this analysis, the ProfileReport tool from pandas_profiling library was used, where it was possible to observe that there are no duplicate values. The platform "Hulu" contains the most null values, some columns such as "cast" do not contain any values. Additionally, it was observed that the movie with the lowest score was "filth" with a score of 0.5.
 
 # Recommendation system:
 
